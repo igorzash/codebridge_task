@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Link, Typography } from '@mui/material';
-import Article from '../models/articleModel';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+import Publication from '../models/publicationModel';
 
 
 const monthNames = [
@@ -27,19 +27,19 @@ function dateFormatter(date: Date): string {
 
 
 
-interface ArticleCardProps {
-    article: Article
+interface PublicationCardProps {
+    publication: Publication
 }
 
 
 
-const ArticleCard: React.FunctionComponent<ArticleCardProps> = ({ article }) => {
+const PublicationCard: React.FunctionComponent<PublicationCardProps> = ({ publication }) => {
     return (
         <Card>
             <CardMedia
                 component="img"
                 height="200"
-                image={article.imageUrl}
+                image={publication.imageUrl}
             />
 
             <Grid direction="column" container sx={{ height: 300, pb: 1 }} justifyContent="space-between">
@@ -49,16 +49,16 @@ const ArticleCard: React.FunctionComponent<ArticleCardProps> = ({ article }) => 
 
                         <Grid item sx={{ pl: 0.5 }}>
                             <Typography sx={{ fontSize: 16, color: '#888' }}>
-                                {dateFormatter(article.publishedAt)}
+                                {dateFormatter(publication.publishedAt)}
                             </Typography>
                         </Grid>
                     </Grid>
 
                     <Typography gutterBottom variant="h5" sx={{ height: 100, m: 0, pb: 2 }}>
-                        {article.title}
+                        {publication.title}
                     </Typography>
                     <Typography variant="body2" sx={{ pb: 2 }}>
-                        {article.summary.slice(0, 100)}
+                        {publication.summary.slice(0, 100)}
                     </Typography>
                 </CardContent>
                 <CardActions sx={{ pt: 0, px: 2.7 }}>
@@ -74,4 +74,4 @@ const ArticleCard: React.FunctionComponent<ArticleCardProps> = ({ article }) => 
     );
 }
 
-export default ArticleCard;
+export default PublicationCard;
