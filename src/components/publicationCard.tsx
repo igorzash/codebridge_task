@@ -15,7 +15,7 @@ const monthNames = [
 
 function dateFormatter(date: Date): string {
     const month = date.getMonth();
-    const day = date.getDay();
+    const day = date.getDay() + 1;
     const year = date.getFullYear();
 
     const dayPostfix = (![1, 2, 3].includes(day)) ? 'th' : (
